@@ -22,6 +22,10 @@ var Config = require('./config.json')
 }
 */
 
+// inject heroku slack token var
+
+Config.slack.token = process.env.SLACK_TOKEN;
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.set('port', Config.http.port)
