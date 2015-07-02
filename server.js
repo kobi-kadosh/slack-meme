@@ -26,6 +26,8 @@ var Config = require('./config.json')
 
 Config.slack.token = process.env.SLACK_TOKEN;
 
+Config.slack.webhook = process.env.SLACK_WEBHOOK;
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.set('port', Config.http.port)
