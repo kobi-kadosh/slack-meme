@@ -1,10 +1,15 @@
 # slack-meme
-Slack meme integration
+Slack meme integration + heroku
+
+TODO:
+set heroku vars..
 
 # Setup
 * `npm install`
-* Create a http://memegenerator.net account and update the `config.json`.
+* Create a http://imgflip.com account and update the `config.json`.
 * Create a slack `/meme` slash command and update `slack : { token : '' }` in `config.json`.
+// explain about how to set slash command 
+
 * Create a slack `Incoming Webhook` integration and update `slack : { webhook : '' }` in `config.json`.
 
 # Production
