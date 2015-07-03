@@ -24,14 +24,16 @@ var Config = require('./config.json')
 
 // inject heroku slack token var
 
-Config.slack.token = process.env.SLACK_TOKEN;
+if (process.env.SLACK_TOKEN)
+	Config.slack.token = process.env.SLACK_TOKEN;
 
-Config.slack.webhook = process.env.SLACK_WEBHOOK;
+if (process.env.SLACK_WEBHOOK)
+	Config.slack.webhook = process.env.SLACK_WEBHOOK;
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.set('port', Config.http.port)
-var lib = new IndexLib(Config, app)
+app.set('port', Config.http.port);
+var lib = new IndexLib(Config, app);
 var server = app.listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + server.address().port)
-})
+});
